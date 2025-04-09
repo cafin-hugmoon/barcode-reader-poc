@@ -1,0 +1,13 @@
+<!-- templates/fooditem_detail.html -->
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ food_item.name }}</h1>
+  <p><strong>Amount:</strong> {{ food_item.amount }}</p>
+  <p><strong>Quantity:</strong> {{ food_item.quantity }}</p>
+  <p><strong>Expiry Date:</strong> {{ food_item.expiry_date }}</p>
+  
+  <a href="{% url 'fooditem_update' food_item.pk %}" class="btn btn-warning">Edit</a>
+  <a href="{% url 'fooditem_delete' food_item.pk %}" class="btn btn-danger">Delete</a>
+  <br><br>
+  <a href="{% url 'fooditem_list' %}">Back to list</a>
+{% endblock %}

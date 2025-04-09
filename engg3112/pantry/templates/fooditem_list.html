@@ -1,0 +1,16 @@
+<!-- templates/fooditem_list.html -->
+{% extends "base.html" %}
+{% block content %}
+  <h1>Food Items</h1>
+  <a href="{% url 'fooditem_create' %}" class="btn btn-primary mb-3">Add New Food Item</a>
+  <ul class="list-group">
+    {% for item in food_items %}
+      <li class="list-group-item">
+        <a href="{% url 'fooditem_detail' item.pk %}">{{ item.name }}</a> -
+        {{ item.amount }} - Quantity: {{ item.quantity }} - Expires: {{ item.expiry_date }}
+      </li>
+    {% empty %}
+      <li class="list-group-item">No food items available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

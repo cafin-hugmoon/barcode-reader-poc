@@ -18,4 +18,3 @@ def get_product_details(ean):
         print("Error:", response.status_code)
         return None, None, None
     
-print(get_product_details(9342866000482))

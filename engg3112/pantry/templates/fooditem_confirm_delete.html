@@ -1,0 +1,11 @@
+<!-- templates/fooditem_confirm_delete.html -->
+{% extends "base.html" %}
+{% block content %}
+  <h1>Confirm Delete</h1>
+  <p>Are you sure you want to delete "{{ food_item.name }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a href="{% url 'fooditem_detail' food_item.pk %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
