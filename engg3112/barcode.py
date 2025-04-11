@@ -64,6 +64,10 @@ while cap.isOpened():
             if barcode.data != "":
                 print(get_product_details(barcode.data))
                 name, qty, expiry_date = get_product_details(barcode.data)
+                if(name == None and qty == None):
+                    continue
+                elif(qty == None):
+                    qty = "1 Unit"
                 create_food_item(name, qty, 1)
                 cv2.putText(frame,str(barcode.data),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,255),2)
                 pygame.mixer.music.play()
